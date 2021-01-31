@@ -1,14 +1,13 @@
-package com.example.music;
+package com.example.music.controller.activity;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.music.R;
+import com.example.music.adapter.PagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -56,33 +55,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).attach();
-    }
-
-    public class PagerAdapter extends FragmentStateAdapter {
-        private static final int NUMBER_OF_PAGES = 3;
-
-        public PagerAdapter(@NonNull FragmentActivity fragmentActivity) {
-            super(fragmentActivity);
-        }
-
-        @NonNull
-        @Override
-        public Fragment createFragment(int position) {
-            switch (position) {
-                case 0:
-                    return MusicFragment.newInstance();
-                case 1:
-                    return ArtistFragment.newInstance();
-                case 2:
-                    return AlbumFragment.newInstance();
-                default:
-                    return null;
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return NUMBER_OF_PAGES;
-        }
     }
 }

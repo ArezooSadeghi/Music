@@ -1,4 +1,4 @@
-package com.example.music;
+package com.example.music.controller.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class MusicFragment extends Fragment {
+import com.example.music.R;
+
+public class AlbumFragment extends Fragment {
 
 
-    public static MusicFragment newInstance() {
-        MusicFragment fragment = new MusicFragment();
+    public static AlbumFragment newInstance() {
+        AlbumFragment fragment = new AlbumFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -26,6 +28,6 @@ public class MusicFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_music, container, false);
+        return inflater.inflate(R.layout.fragment_album, container, false);
     }
 }
