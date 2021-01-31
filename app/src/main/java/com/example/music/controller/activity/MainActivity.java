@@ -1,5 +1,7 @@
 package com.example.music.controller.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
+
     private ViewPager2 mViewPager;
     private TabLayout mTabLayout;
 
@@ -55,5 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).attach();
+    }
+
+    public static Intent newIntent(Context context) {
+        return new Intent(context, MainActivity.class);
     }
 }

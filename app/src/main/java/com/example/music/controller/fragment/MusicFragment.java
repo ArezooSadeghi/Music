@@ -11,10 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.music.R;
 import com.example.music.adapter.MusicAdapter;
+import com.example.music.repository.MusicRepository;
 import com.example.music.utils.ExtractMetadata;
 
 public class MusicFragment extends Fragment {
+
     private RecyclerView mRecyclerView;
+    private MusicRepository mRepository;
 
 
     public static MusicFragment newInstance() {
@@ -27,6 +30,9 @@ public class MusicFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mRepository = MusicRepository.getInstance();
+        mRepository.setMusics(ExtractMetadata.getMusicInformation(getContext()));
     }
 
     @Override
@@ -51,7 +57,7 @@ public class MusicFragment extends Fragment {
     }
 
     private void setupAdapter() {
-        MusicAdapter adapter = new MusicAdapter(getContext(), ExtractMetadata.getMusicInformation(getContext()));
+        MusicAdapter adapter = new MusicAdapter(getContext(), mRepository.getMusics());
         mRecyclerView.setAdapter(adapter);
     }
 }

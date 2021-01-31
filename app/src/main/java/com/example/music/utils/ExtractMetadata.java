@@ -15,7 +15,6 @@ import java.util.List;
 
 public class ExtractMetadata {
 
-
     public static List<Music> getMusicInformation(Context context) {
         List<Music> musics = new ArrayList<>();
         int[] mMusicIds = new int[]{
@@ -45,10 +44,10 @@ public class ExtractMetadata {
             }
             String duration = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
 
-            byte[] bytes = metadataRetriever.getEmbeddedPicture();
+            byte[] artBytes = metadataRetriever.getEmbeddedPicture();
             Bitmap image = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.image_test)).getBitmap();
-            if (bytes != null) {
-                image = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            if (artBytes != null) {
+                image = BitmapFactory.decodeByteArray(artBytes, 0, artBytes.length);
             }
 
             Music music = new Music(title, artistName, duration, image);
@@ -57,3 +56,4 @@ public class ExtractMetadata {
         return musics;
     }
 }
+

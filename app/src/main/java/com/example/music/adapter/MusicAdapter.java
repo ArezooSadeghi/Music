@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.music.R;
+import com.example.music.controller.activity.PlayBackContainerActivity;
 import com.example.music.model.Music;
 
 import java.util.List;
@@ -36,12 +37,19 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicHolder>
     @Override
     public void onBindViewHolder(@NonNull MusicHolder holder, int position) {
         holder.bindMusic(mMusics.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(PlayBackContainerActivity.newIntent(mContext, mMusics.get(position).getId()));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return mMusics.size();
     }
+
 
     public class MusicHolder extends RecyclerView.ViewHolder {
         private ImageView mImageViewMusic;
