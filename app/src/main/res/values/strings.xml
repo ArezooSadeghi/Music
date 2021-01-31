@@ -5,4 +5,6 @@
     <string name="music_title">Music</string>
     <string name="artist_title">Artist</string>
     <string name="album_title">Album</string>
+    <string name="no_title">UnKnown ~ UpMusic</string>
+    <string name="no_artist_name">unknown</string>
 </resources>

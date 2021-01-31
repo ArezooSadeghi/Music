@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.music.R;
+import com.example.music.adapter.MusicAdapter;
+import com.example.music.utils.ExtractMetadata;
 
 public class MusicFragment extends Fragment {
     private RecyclerView mRecyclerView;
@@ -35,6 +37,7 @@ public class MusicFragment extends Fragment {
 
         findViews(view);
         initRecyclerView();
+        setupAdapter();
 
         return view;
     }
@@ -45,5 +48,10 @@ public class MusicFragment extends Fragment {
 
     private void initRecyclerView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    private void setupAdapter() {
+        MusicAdapter adapter = new MusicAdapter(getContext(), ExtractMetadata.getMusicInformation(getContext()));
+        mRecyclerView.setAdapter(adapter);
     }
 }
